@@ -3,204 +3,155 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>wasiey | OneStream Developer & AI Engineer</title>
-  <meta name="description" content="OneStream developer and AI engineer building finance systems and AI agents on top of CPM data.">
+  <meta name="color-scheme" content="light dark">
+  <title>wasiey · OneStream developer</title>
+  <meta name="description" content="OneStream developer working on consolidation, reporting and forecasting, and on LLM tools that read live OneStream data.">
   <style>
     :root {
-      --bg: #0f0f17;
-      --card: #181826;
-      --border: #2a2a40;
-      --text: #e4e4f0;
-      --muted: #9a9ab5;
-      --accent: #7c5cff;
-      --accent2: #22d3ee;
+      --bg: #fbfaf7;
+      --text: #1c1c1c;
+      --muted: #666;
+      --rule: #e3e1db;
+      --link: #1a4f8b;
     }
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #161616;
+        --text: #e6e6e6;
+        --muted: #9a9a9a;
+        --rule: #2c2c2c;
+        --link: #8ab4f8;
+      }
+    }
+    * { box-sizing: border-box; }
     body {
-      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      margin: 0;
       background: var(--bg);
       color: var(--text);
-      line-height: 1.6;
+      font: 17px/1.6 -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
     }
-    a { color: var(--accent2); text-decoration: none; }
-    a:hover { text-decoration: underline; }
-    .wrap { max-width: 900px; margin: 0 auto; padding: 0 1.5rem; }
+    main { max-width: 40rem; margin: 0 auto; padding: 4rem 1.25rem 3rem; }
+    a { color: var(--link); text-underline-offset: 2px; }
+    h1 { font-size: 1.75rem; margin: 0 0 .25rem; }
+    h2 { font-size: 1.1rem; margin: 2.75rem 0 .75rem; }
+    h3 { font-size: 1rem; margin: 0; }
+    p, ul, dl { margin: 0 0 1rem; }
+    ul { padding-left: 1.2rem; }
+    li { margin-bottom: .35rem; }
+    .muted { color: var(--muted); }
+    .intro { margin-top: 1.25rem; }
 
-    header { padding: 6rem 0 4rem; }
-    .tag { color: var(--accent2); font-family: ui-monospace, Consolas, monospace; font-size: .95rem; }
-    h1 { font-size: clamp(2.2rem, 6vw, 3.4rem); line-height: 1.15; margin: .5rem 0 1rem; }
-    h1 span { background: linear-gradient(90deg, var(--accent), var(--accent2)); -webkit-background-clip: text; background-clip: text; color: transparent; }
-    .lead { color: var(--muted); font-size: 1.15rem; max-width: 640px; }
-    .links { margin-top: 2rem; display: flex; gap: .75rem; flex-wrap: wrap; }
-    .btn {
-      display: inline-block; padding: .6rem 1.2rem; border-radius: 8px;
-      border: 1px solid var(--border); background: var(--card); color: var(--text);
-      font-weight: 500;
+    dt { font-weight: 600; }
+    dd { margin: 0 0 .9rem; }
+
+    .job { margin-bottom: 1.5rem; }
+    .job-head { display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
+    .job-head .muted { font-variant-numeric: tabular-nums; }
+
+    .stack dt { float: left; clear: left; width: 7.5rem; font-weight: 400; color: var(--muted); }
+    .stack dd { margin: 0 0 .4rem 7.5rem; }
+    @media (max-width: 30rem) {
+      .stack dt { float: none; width: auto; }
+      .stack dd { margin-left: 0; }
     }
-    .btn.primary { background: var(--accent); border-color: var(--accent); color: #fff; }
-    .btn:hover { text-decoration: none; border-color: var(--accent); }
 
-    section { padding: 3rem 0; border-top: 1px solid var(--border); }
-    h2 { font-size: 1.5rem; margin-bottom: 1.5rem; }
-    h2::before { content: "# "; color: var(--accent); font-family: ui-monospace, Consolas, monospace; }
-
-    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1rem; }
-    .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 1.4rem; }
-    .card h3 { font-size: 1.05rem; margin-bottom: .5rem; }
-    .card p { color: var(--muted); font-size: .95rem; }
-
-    .chips { display: flex; flex-wrap: wrap; gap: .5rem; }
-    .chip {
-      font-family: ui-monospace, Consolas, monospace; font-size: .85rem;
-      padding: .3rem .7rem; border-radius: 999px;
-      background: rgba(124, 92, 255, .12); border: 1px solid rgba(124, 92, 255, .35); color: #cfc4ff;
-    }
-    .skill-group { margin-bottom: 1.25rem; }
-    .skill-group h3 { font-size: .9rem; color: var(--muted); text-transform: uppercase; letter-spacing: .05em; margin-bottom: .6rem; }
-
-    .timeline-item { margin-bottom: 1.75rem; }
-    .timeline-item .meta { color: var(--muted); font-size: .9rem; }
-    .timeline-item h3 { font-size: 1.1rem; }
-    .timeline-item ul { margin: .6rem 0 0 1.2rem; color: var(--muted); }
-    .timeline-item li { margin-bottom: .3rem; }
-
-    footer { padding: 2.5rem 0; border-top: 1px solid var(--border); color: var(--muted); font-size: .9rem; text-align: center; }
+    footer { margin-top: 3rem; padding-top: 1rem; border-top: 1px solid var(--rule); font-size: .9rem; }
   </style>
 </head>
 <body>
-  <div class="wrap">
+  <main>
     <header>
-      <div class="tag">$ whoami</div>
-      <h1>Hi, I'm wasiey.<br><span>OneStream Developer &amp; AI Engineer</span></h1>
-      <p class="lead">
-        I build finance systems on OneStream and the AI agents that sit on top of them,
-        so that finance and admin teams get answers in minutes instead of days.
+      <h1>wasiey</h1>
+      <p class="muted">OneStream developer · Python, VB.NET, C#, SQL</p>
+      <p class="intro">
+        I'm the technical owner of the OneStream platform at a global manufacturer, covering
+        consolidation, IFRS group reporting and forecasting. I also build LLM agents that let
+        finance users and admins ask questions of live OneStream data. My background is in
+        data engineering and machine learning.
       </p>
-      <div class="links">
-        <a class="btn primary" href="https://github.com/wasiey" target="_blank" rel="noopener">GitHub</a>
-        <a class="btn" href="#work">What I build</a>
-      </div>
+      <p><a href="https://github.com/wasiey">GitHub</a></p>
     </header>
 
-    <section id="about">
-      <h2>About</h2>
-      <p class="lead">
-        I'm a OneStream developer and technical model owner at a global manufacturer, working on
-        consolidation, IFRS reporting and predictive financial forecasting. My background is in
-        data engineering and machine learning, and I enjoy building tools that connect
-        enterprise finance platforms with modern AI.
-      </p>
-    </section>
-
     <section id="work">
-      <h2>What I build</h2>
-      <div class="grid">
-        <div class="card">
-          <h3>🤖 AI agents for finance</h3>
-          <p>LLM agents that trace values, explain calculation logic and search rules on live CPM data
-            via REST APIs. Read-only by design, with human approval for any change.</p>
-        </div>
-        <div class="card">
-          <h3>📊 Forecasting &amp; planning</h3>
-          <p>Driver-based planning and predictive forecasting models, from design to go-live,
-            combining operational and financial drivers.</p>
-        </div>
-        <div class="card">
-          <h3>🧮 Consolidation &amp; reporting</h3>
-          <p>Month-end close, intercompany eliminations, currency translation and IFRS group reporting.</p>
-        </div>
-        <div class="card">
-          <h3>⚙️ Business rules &amp; dashboards</h3>
-          <p>Business rules in VB.NET and C#, custom workspaces and dashboards, and SQL-based ETL.</p>
-        </div>
-        <div class="card">
-          <h3>🔗 Data integration</h3>
-          <p>Pipelines from ERP and lakehouse platforms (SAP, Databricks) into the planning platform.</p>
-        </div>
-        <div class="card">
-          <h3>🛠️ Tooling &amp; automation</h3>
-          <p>Python and PowerShell tools for metadata analysis, cleanup automation and end-user launchers.</p>
-        </div>
-      </div>
-    </section>
+      <h2>What I work on</h2>
+      <dl>
+        <dt>AI agents for finance</dt>
+        <dd>Agents that trace a value back to its source, explain calculation logic and search
+          business rules, all through the OneStream REST API. They can only read. Any change
+          still needs a person to approve it.</dd>
 
-    <section id="skills">
-      <h2>Tech stack</h2>
-      <div class="skill-group">
-        <h3>Languages</h3>
-        <div class="chips">
-          <span class="chip">Python</span><span class="chip">VB.NET</span><span class="chip">C#</span>
-          <span class="chip">SQL / T-SQL</span><span class="chip">PowerShell</span>
-        </div>
-      </div>
-      <div class="skill-group">
-        <h3>AI &amp; Data</h3>
-        <div class="chips">
-          <span class="chip">LLM Agents</span><span class="chip">OpenAI Agents SDK</span><span class="chip">MLflow</span>
-          <span class="chip">Databricks</span><span class="chip">REST APIs</span><span class="chip">ETL</span>
-          <span class="chip">Machine Learning</span>
-        </div>
-      </div>
-      <div class="skill-group">
-        <h3>Platforms &amp; BI</h3>
-        <div class="chips">
-          <span class="chip">OneStream</span><span class="chip">SAP</span><span class="chip">Power BI</span>
-          <span class="chip">Qlik</span><span class="chip">Tableau</span>
-        </div>
-      </div>
-      <div class="skill-group">
-        <h3>Delivery</h3>
-        <div class="chips">
-          <span class="chip">Azure DevOps</span><span class="chip">Agile / Scrum</span>
-          <span class="chip">Jira</span><span class="chip">Confluence</span>
-        </div>
-      </div>
+        <dt>Forecasting and planning</dt>
+        <dd>Driver-based planning and predictive forecasting models that combine operational and
+          financial drivers. I've taken them from design through go-live.</dd>
+
+        <dt>Consolidation and reporting</dt>
+        <dd>Month-end close, intercompany eliminations, currency translation and IFRS group reporting.</dd>
+
+        <dt>Business rules and dashboards</dt>
+        <dd>Business rules in VB.NET and C#, custom workspaces and dashboards, SQL-based ETL.</dd>
+
+        <dt>Data integration</dt>
+        <dd>Loads from SAP and Databricks into OneStream.</dd>
+
+        <dt>Tooling</dt>
+        <dd>Python and PowerShell scripts for metadata analysis, automated cleanup and launchers for end users.</dd>
+      </dl>
     </section>
 
     <section id="experience">
       <h2>Experience</h2>
-      <div class="timeline-item">
-        <h3>OneStream Developer &amp; Forecasting Model Owner</h3>
-        <div class="meta">Global manufacturer · 2024 – present</div>
+      <div class="job">
+        <div class="job-head">
+          <h3>OneStream Developer &amp; Forecasting Model Owner</h3>
+          <span class="muted">2024 – now</span>
+        </div>
+        <p class="muted">Global manufacturer</p>
         <ul>
-          <li>Technical owner of the OneStream platform for consolidation, reporting and forecasting.</li>
-          <li>Build AI agents that let admins and finance users query live data in plain language.</li>
-          <li>Develop business rules, dashboards and data integrations; release via Azure DevOps.</li>
+          <li>Technical owner of OneStream for consolidation, reporting and forecasting.</li>
+          <li>Building AI agents that answer plain-language questions on live data.</li>
+          <li>Business rules, dashboards and data integrations, released through Azure DevOps.</li>
         </ul>
       </div>
-      <div class="timeline-item">
-        <h3>Product Data Manager &amp; IT Analyst</h3>
-        <div class="meta">Global logistics provider · 2021 – 2024</div>
+      <div class="job">
+        <div class="job-head">
+          <h3>Product Data Manager &amp; IT Analyst</h3>
+          <span class="muted">2021 – 2024</span>
+        </div>
+        <p class="muted">Global logistics provider</p>
         <ul>
           <li>Data architecture, ETL pipelines and real-time KPI monitoring in SQL and Python.</li>
-          <li>Qlik and Tableau dashboards for cross-departmental decisions.</li>
-          <li>Ran Agile Scrum sprints and requirements mapping.</li>
+          <li>Qlik and Tableau dashboards used across departments.</li>
+          <li>Ran Scrum sprints and gathered requirements.</li>
         </ul>
       </div>
+    </section>
+
+    <section id="stack">
+      <h2>Tools</h2>
+      <dl class="stack">
+        <dt>Languages</dt>
+        <dd>Python, VB.NET, C#, SQL / T-SQL, PowerShell</dd>
+        <dt>AI and data</dt>
+        <dd>OpenAI Agents SDK, MLflow, Databricks, REST APIs</dd>
+        <dt>Platforms</dt>
+        <dd>OneStream, SAP, Power BI, Qlik, Tableau</dd>
+        <dt>Delivery</dt>
+        <dd>Azure DevOps, Jira, Confluence, Scrum</dd>
+      </dl>
     </section>
 
     <section id="education">
-      <h2>Education &amp; Certifications</h2>
-      <div class="grid">
-        <div class="card">
-          <h3>M.Sc. Information Technology</h3>
-          <p>Thesis on machine learning for industrial system optimization</p>
-        </div>
-        <div class="card">
-          <h3>B.Sc. Engineering</h3>
-          <p>Engineering fundamentals, programming and systems</p>
-        </div>
-        <div class="card">
-          <h3>OneStream Essentials badges</h3>
-          <p>Administration, Security, Financial Calculations, Dashboards and more.</p>
-        </div>
-      </div>
+      <h2>Education</h2>
+      <ul>
+        <li><strong>M.Sc. Information Technology</strong>, thesis on machine learning for industrial system optimization</li>
+        <li><strong>B.Sc. Engineering</strong></li>
+        <li><strong>OneStream Essentials badges</strong>: Administration, Security, Financial Calculations, Dashboards</li>
+      </ul>
     </section>
 
-    <footer>
-      © <span id="y"></span> wasiey · <a href="https://wasiey.is-a.dev">wasiey.is-a.dev</a>
+    <footer class="muted">
+      <a href="https://github.com/wasiey">github.com/wasiey</a> · <a href="https://wasiey.is-a.dev">wasiey.is-a.dev</a>
     </footer>
-  </div>
-  <script>document.getElementById("y").textContent = new Date().getFullYear();</script>
+  </main>
 </body>
 </html>
