@@ -4,62 +4,55 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="color-scheme" content="light dark">
-  <title>wasiey · Senior OneStream Developer</title>
-  <meta name="description" content="Senior OneStream developer working on consolidation, reporting and forecasting, and building AI agents that read live OneStream data.">
+  <title>wasiey · Senior OneStream developer</title>
+  <meta name="description" content="Senior OneStream developer. Consolidation, group reporting and forecasting, plus LLM tools built on the OneStream REST API.">
   <link rel="canonical" href="https://wasiey.is-a.dev/">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-  <meta name="theme-color" content="#f7f7f5" media="(prefers-color-scheme: light)">
-  <meta name="theme-color" content="#0c0e12" media="(prefers-color-scheme: dark)">
+  <meta name="theme-color" content="#f5f2ea" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#171613" media="(prefers-color-scheme: dark)">
 
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://wasiey.is-a.dev/">
-  <meta property="og:title" content="wasiey · Senior OneStream Developer">
-  <meta property="og:description" content="Consolidation, reporting and forecasting on OneStream, plus AI agents that let finance ask questions of live data.">
+  <meta property="og:title" content="wasiey · Senior OneStream developer">
+  <meta property="og:description" content="Consolidation, group reporting and forecasting on OneStream, plus LLM tools built on top of it.">
   <meta property="og:image" content="https://wasiey.is-a.dev/og.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
 
-  <link rel="preload" href="/fonts/inter-var.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="/fonts/jetbrains-mono-var.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fonts/source-serif-4.woff2" as="font" type="font/woff2" crossorigin>
 
   <style>
     @font-face {
-      font-family: "Inter";
-      src: url("/fonts/inter-var.woff2") format("woff2");
-      font-weight: 100 900;
+      font-family: "Source Serif 4";
+      src: url("/fonts/source-serif-4.woff2") format("woff2");
+      font-weight: 200 900;
+      font-style: normal;
       font-display: swap;
     }
     @font-face {
-      font-family: "JetBrains Mono";
-      src: url("/fonts/jetbrains-mono-var.woff2") format("woff2");
-      font-weight: 100 800;
+      font-family: "Source Serif 4";
+      src: url("/fonts/source-serif-4-italic.woff2") format("woff2");
+      font-weight: 200 900;
+      font-style: italic;
       font-display: swap;
     }
 
     :root {
-      --bg: #f7f7f5;
-      --surface: #ffffff;
-      --text: #18181b;
-      --muted: #5f6168;
-      --faint: #8a8c93;
-      --border: rgba(24, 24, 27, .09);
-      --accent: #0f6f6a;
-      --accent-tint: rgba(15, 111, 106, .08);
-      --sans: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-      --mono: "JetBrains Mono", ui-monospace, "SF Mono", Consolas, monospace;
-      --ease: cubic-bezier(.645, .045, .355, 1);
+      --paper: #f5f2ea;
+      --ink: #1c1b18;
+      --muted: #5c5950;
+      --hair: rgba(28, 27, 24, .16);
+      --red: #9a2e1c;
+      --serif: "Source Serif 4", "Iowan Old Style", Georgia, serif;
     }
     @media (prefers-color-scheme: dark) {
       :root {
-        --bg: #0c0e12;
-        --surface: #12151b;
-        --text: #e4e6eb;
-        --muted: #9a9ea8;
-        --faint: #6f737d;
-        --border: rgba(228, 230, 235, .09);
-        --accent: #5fd0c3;
-        --accent-tint: rgba(95, 208, 195, .08);
+        --paper: #171613;
+        --ink: #e8e4da;
+        --muted: #a29d91;
+        --hair: rgba(232, 228, 218, .16);
+        --red: #e0876c;
       }
     }
 
@@ -67,409 +60,318 @@
     html { -webkit-text-size-adjust: 100%; }
     body {
       margin: 0;
-      background: var(--bg);
-      color: var(--muted);
-      font: 400 16.5px/1.7 var(--sans);
-      font-feature-settings: "cv11", "ss01";
+      background: var(--paper);
+      color: var(--ink);
+      font: 400 18px/1.6 var(--serif);
+      font-optical-sizing: auto;
+      font-variant-numeric: oldstyle-nums proportional-nums;
       -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
     }
-    ::selection { background: var(--accent); color: var(--bg); }
+    ::selection { background: var(--ink); color: var(--paper); }
 
-    a { color: inherit; text-decoration: none; }
-    p a, .link {
-      color: var(--text);
-      font-weight: 500;
-      background: linear-gradient(var(--accent), var(--accent)) 0 100% / 100% 1px no-repeat;
-      transition: color .2s var(--ease);
+    a {
+      color: inherit;
+      text-decoration: underline;
+      text-decoration-thickness: 1px;
+      text-decoration-color: var(--red);
+      text-underline-offset: .18em;
     }
-    p a:hover, .link:hover { color: var(--accent); }
-    :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
-    strong { color: var(--text); font-weight: 600; }
-    h1, h2, h3 { color: var(--text); text-wrap: balance; }
-    p { margin: 0 0 1rem; text-wrap: pretty; }
+    a:hover { color: var(--red); }
+    :focus-visible { outline: 2px solid var(--red); outline-offset: 2px; }
 
-    .skip {
-      position: absolute; left: 1rem; top: -3rem; z-index: 10;
-      padding: .5rem .9rem; border-radius: 6px;
-      background: var(--accent); color: var(--bg); font-weight: 600;
-    }
-    .skip:focus { top: 1rem; }
+    p { margin: 0 0 1em; text-wrap: pretty; }
+    .muted { color: var(--muted); }
+    .sc { font-variant-caps: all-small-caps; letter-spacing: .04em; font-variant-numeric: lining-nums; }
+    .tab { font-variant-numeric: lining-nums tabular-nums; }
 
-    .wrap {
-      max-width: 1180px;
+    .page {
+      max-width: 50rem;
       margin: 0 auto;
-      padding: 0 1.5rem;
+      padding: 3.5rem 1.25rem 4rem;
     }
 
-    /* ---------- sidebar ---------- */
-    .side { padding: 4.5rem 0 2rem; }
-    .side h1 {
+    /* double rule: thick over thin, as on a report cover */
+    .rule {
+      height: 5px;
+      border-top: 2px solid var(--ink);
+      border-bottom: 1px solid var(--ink);
+    }
+
+    /* ---------- title block ---------- */
+    .masthead { padding: 2.25rem 0 2rem; }
+    .masthead h1 {
       margin: 0;
-      font-size: clamp(2.5rem, 5vw, 3.25rem);
-      font-weight: 700;
-      line-height: 1.05;
-      letter-spacing: -.035em;
+      font-size: clamp(3rem, 9vw, 4.5rem);
+      font-weight: 600;
+      line-height: 1;
+      letter-spacing: -.02em;
     }
-    .role {
-      margin: .75rem 0 0;
-      color: var(--text);
-      font-size: 1.15rem;
-      font-weight: 500;
-      letter-spacing: -.01em;
+    .lede {
+      max-width: 33em;
+      margin: 1.25rem 0 0;
+      font-size: 1.2rem;
+      line-height: 1.5;
     }
-    .pitch { max-width: 21rem; margin: 1rem 0 0; }
+    .colophon {
+      display: flex; flex-wrap: wrap; gap: .25rem 1.5rem;
+      margin: 1.5rem 0 0;
+      color: var(--muted);
+      font-size: .95rem;
+    }
 
-    .status {
-      display: inline-flex; align-items: center; gap: .55rem;
-      margin-top: 1.5rem;
-      font: 500 .75rem/1 var(--mono);
+    /* ---------- notes (sections) ---------- */
+    section { padding-top: 2.75rem; }
+    section h2 {
+      display: flex; align-items: baseline; gap: .75rem;
+      margin: 0 0 1rem;
+      padding-bottom: .4rem;
+      border-bottom: 1px solid var(--ink);
+      font-size: 1.05rem;
+      font-weight: 600;
+    }
+    section h2 .no {
+      color: var(--red);
+      font-weight: 400;
+      font-variant-numeric: lining-nums;
+    }
+    .body { max-width: 36em; }
+
+    /* ---------- statement table ---------- */
+    table.statement {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: .97rem;
+    }
+    .statement caption {
+      caption-side: top;
+      text-align: left;
+      color: var(--muted);
+      font-style: italic;
+      padding-bottom: .75rem;
+    }
+    .statement thead th {
+      padding: 0 0 .35rem;
+      text-align: left;
+      font-weight: 400;
+      color: var(--muted);
+      border-bottom: 1px solid var(--hair);
+    }
+    .statement td, .statement tbody th {
+      padding: .9rem 0;
+      vertical-align: top;
+      text-align: left;
+      border-bottom: 1px solid var(--hair);
+    }
+    .statement tbody th { font-weight: 600; padding-right: 1.5rem; }
+    .statement tbody th span {
+      display: block;
+      margin-top: .2rem;
+      font-weight: 400;
+      color: var(--muted);
+      max-width: 30em;
+    }
+    .statement .status { white-space: nowrap; padding-right: 1.5rem; color: var(--muted); font-style: italic; }
+    .statement .num {
+      text-align: right;
+      white-space: nowrap;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    .statement tbody tr:last-child > * { border-bottom: 3px double var(--ink); }
+
+    sup { line-height: 0; font-size: .7em; font-variant-numeric: lining-nums; }
+    sup a { text-decoration: none; color: var(--red); padding: 0 .1em; }
+
+    /* ---------- experience ---------- */
+    .entries { list-style: none; margin: 0; padding: 0; }
+    .entry {
+      display: grid;
+      gap: .1rem 1.75rem;
+      padding: .25rem 0 1.4rem;
+    }
+    .entry .when { color: var(--muted); }
+    .entry h3 { margin: 0; font-size: 1rem; font-weight: 600; }
+    .entry h3 em { font-weight: 400; }
+    .entry ul { margin: .4rem 0 0; padding-left: 1.1rem; }
+    .entry li { margin-bottom: .2rem; }
+    .entry li::marker { content: "– "; color: var(--muted); }
+
+    /* ---------- tools ---------- */
+    dl.schedule { margin: 0; }
+    .schedule div {
+      display: grid;
+      gap: 0 1.75rem;
+      padding: .45rem 0;
+      border-bottom: 1px dotted var(--hair);
+    }
+    .schedule div:last-child { border-bottom: 0; }
+    .schedule dt { color: var(--muted); }
+    .schedule dd { margin: 0; }
+
+    /* ---------- footnotes ---------- */
+    ol.notes { margin: 0; padding-left: 1.4rem; font-size: .92rem; color: var(--muted); }
+    ol.notes li { margin-bottom: .4rem; padding-left: .25rem; }
+    ol.notes li::marker { color: var(--red); font-variant-numeric: lining-nums; }
+    ol.notes li:target { color: var(--ink); }
+
+    footer { margin-top: 3.5rem; }
+    footer p {
+      display: flex; justify-content: space-between; flex-wrap: wrap; gap: .5rem;
+      margin: .6rem 0 0;
+      font-size: .9rem;
       color: var(--muted);
     }
-    .status i {
-      width: 7px; height: 7px; border-radius: 50%;
-      background: var(--accent);
-      box-shadow: 0 0 0 3px var(--accent-tint);
+
+    @media (min-width: 40rem) {
+      .entry, .schedule div { grid-template-columns: 8rem 1fr; }
     }
 
-    nav.toc { display: none; margin-top: 3.5rem; }
-    nav.toc ul { list-style: none; margin: 0; padding: 0; }
-    nav.toc a {
-      display: flex; align-items: center; gap: 1rem;
-      padding: .6rem 0;
-      font: 600 .72rem/1 var(--mono);
-      letter-spacing: .12em;
-      text-transform: uppercase;
-      color: var(--faint);
-      transition: color .2s var(--ease);
-    }
-    nav.toc a::before {
-      content: "";
-      width: 2rem; height: 1px;
-      background: currentColor;
-      transition: width .25s var(--ease);
-    }
-    nav.toc a:hover, nav.toc a.active { color: var(--text); }
-    nav.toc a:hover::before, nav.toc a.active::before { width: 4rem; }
-
-    .social { display: flex; gap: 1.1rem; margin-top: 2.5rem; }
-    .social a { color: var(--faint); transition: color .2s var(--ease), transform .2s var(--ease); }
-    .social a:hover { color: var(--text); transform: translateY(-2px); }
-    .social svg { width: 22px; height: 22px; display: block; }
-
-    /* ---------- content ---------- */
-    main { padding-bottom: 4rem; }
-    section { padding-top: 4.5rem; scroll-margin-top: 1rem; }
-    .label {
-      position: sticky; top: 0; z-index: 2;
-      margin: 0 -1.5rem 1.25rem; padding: 1rem 1.5rem;
-      font: 600 .72rem/1 var(--mono);
-      letter-spacing: .12em;
-      text-transform: uppercase;
-      color: var(--text);
-      background: color-mix(in srgb, var(--bg) 82%, transparent);
-      -webkit-backdrop-filter: blur(8px);
-      backdrop-filter: blur(8px);
+    @media (min-width: 60rem) {
+      .page { padding-top: 5rem; }
+      section h2 { position: relative; }
+      section h2 .no { position: absolute; right: calc(100% + 1rem); }
     }
 
-    /* cards (work + experience) */
-    .list { list-style: none; margin: 0; padding: 0; }
-    .card {
-      position: relative;
-      display: grid;
-      gap: .35rem 1.5rem;
-      padding: 1.25rem;
-      margin: 0 -1.25rem .5rem;
-      border-radius: 8px;
-      border: 1px solid transparent;
-      transition: background .25s var(--ease), border-color .25s var(--ease), opacity .25s var(--ease);
-    }
-    .card-meta {
-      font: 500 .72rem/1.9 var(--mono);
-      letter-spacing: .06em;
-      text-transform: uppercase;
-      color: var(--faint);
-      font-variant-numeric: tabular-nums;
-    }
-    .card h3 {
-      margin: 0;
-      font-size: 1rem;
-      font-weight: 600;
-      line-height: 1.4;
-      letter-spacing: -.005em;
-    }
-    .card h3 .sub { display: block; color: var(--muted); font-weight: 400; }
-    .card p { margin: .4rem 0 0; font-size: .95rem; }
-    .card ul.points { margin: .5rem 0 0; padding-left: 1rem; font-size: .95rem; }
-    .card ul.points li { margin-bottom: .25rem; }
-    .card ul.points li::marker { color: var(--faint); }
-
-    .outcome {
-      display: block;
-      margin-top: .75rem;
-      font-size: .9rem;
-      color: var(--text);
-    }
-    .outcome b {
-      margin-right: .4rem;
-      white-space: nowrap;
-      font: 600 .95rem/1 var(--mono);
-      color: var(--accent);
-      font-variant-numeric: tabular-nums;
+    /* the statement becomes a stacked list on phones */
+    @media (max-width: 39.99rem) {
+      .statement thead { position: absolute; clip-path: inset(50%); width: 1px; height: 1px; overflow: hidden; }
+      .statement tr { display: block; padding: .9rem 0; border-bottom: 1px solid var(--hair); }
+      .statement tbody tr:last-child { border-bottom: 3px double var(--ink); }
+      .statement td, .statement tbody th { display: block; padding: 0; border: 0 !important; }
+      .statement .status, .statement .num { display: inline; text-align: left; padding-right: 0; }
+      .statement .nil { display: none; }
+      .statement .status + .num::before { content: " · "; color: var(--muted); }
+      .statement tbody th { padding: 0 0 .3rem; }
     }
 
-    .tags { display: flex; flex-wrap: wrap; gap: .4rem; margin: .9rem 0 0; padding: 0; list-style: none; }
-    .tags li {
-      padding: .3rem .7rem;
-      border-radius: 999px;
-      background: var(--accent-tint);
-      color: var(--accent);
-      font: 500 .72rem/1.2 var(--mono);
-    }
-
-    @media (hover: hover) and (min-width: 1024px) {
-      .list:hover .card { opacity: .5; }
-      .list:hover .card:hover {
-        opacity: 1;
-        background: var(--surface);
-        border-color: var(--border);
-      }
-    }
-
-    /* tools */
-    .stack { display: grid; gap: 1.1rem; margin: 0; }
-    .stack div { display: grid; gap: .2rem; }
-    .stack dt {
-      font: 500 .72rem/1.6 var(--mono);
-      letter-spacing: .06em;
-      text-transform: uppercase;
-      color: var(--faint);
-    }
-    .stack dd { margin: 0; color: var(--text); }
-
-    footer {
-      margin-top: 5rem;
-      padding-top: 1.5rem;
-      border-top: 1px solid var(--border);
-      font-size: .85rem;
-      color: var(--faint);
-    }
-    footer p { margin: 0 0 .4rem; }
-
-    /* ---------- layout breakpoints ---------- */
-    @media (min-width: 640px) {
-      .card { grid-template-columns: 8.5rem 1fr; }
-      .stack div { grid-template-columns: 8.5rem 1fr; gap: 1.5rem; }
-    }
-    @media (min-width: 1024px) {
-      .wrap {
-        display: flex;
-        justify-content: space-between;
-        gap: 4rem;
-        padding: 0 3rem;
-      }
-      .side {
-        position: sticky; top: 0;
-        width: 46%;
-        max-height: 100vh;
-        display: flex; flex-direction: column;
-        padding: 6rem 0;
-      }
-      .social { margin-top: auto; }
-      nav.toc { display: block; }
-      main { width: 54%; padding: 6rem 0; }
-      section { padding-top: 0; padding-bottom: 5.5rem; }
-      #about .label {
-        position: absolute; margin: 0; padding: 0;
-        clip-path: inset(50%); height: 1px; width: 1px; overflow: hidden; white-space: nowrap;
-      }
-      .label {
-        position: static; margin: 0 0 1.25rem; padding: 0;
-        color: var(--faint);
-        background: none; backdrop-filter: none; -webkit-backdrop-filter: none;
-      }
-      footer { margin-top: 0; }
-    }
-
-    /* ---------- motion ---------- */
-    @media (prefers-reduced-motion: no-preference) {
-      html { scroll-behavior: smooth; }
-      .reveal { animation: rise .7s var(--ease) both; }
-      .reveal:nth-child(2) { animation-delay: .06s; }
-      .reveal:nth-child(3) { animation-delay: .12s; }
-      .reveal:nth-child(4) { animation-delay: .18s; }
-      .reveal:nth-child(5) { animation-delay: .24s; }
-      @keyframes rise { from { opacity: 0; transform: translateY(10px); } }
-    }
-    @media (prefers-reduced-motion: reduce) {
-      *, *::before, *::after { transition: none !important; animation: none !important; }
-    }
-
-    /* ---------- print ---------- */
     @media print {
-      :root { --bg: #fff; --text: #000; --muted: #222; --faint: #555; --accent: #000; --accent-tint: transparent; }
-      body { font-size: 11pt; }
-      .wrap { display: block; padding: 0; }
-      .side { position: static; width: auto; padding: 0 0 1rem; max-height: none; }
-      nav.toc, .social, .skip, .status { display: none; }
-      main { width: auto; padding: 0; }
-      section { padding: 1rem 0 0; break-inside: avoid; }
-      .label { position: static; clip-path: none; width: auto; height: auto; padding: 0; margin: 0 0 .5rem; background: none; backdrop-filter: none; }
-      .card { margin: 0 0 .5rem; padding: .5rem 0; opacity: 1 !important; break-inside: avoid; }
-      .tags li { padding: 0; }
-      .tags li + li::before { content: "· "; }
+      :root { --paper: #fff; --ink: #000; --muted: #333; --red: #000; }
+      body { font-size: 10.5pt; }
+      .page { padding: 0; max-width: none; }
+      section { break-inside: avoid; padding-top: 1.25rem; }
+      a { text-decoration: none; }
     }
   </style>
 </head>
 <body>
-  <a class="skip" href="#content">Skip to content</a>
-
-  <div class="wrap">
-    <header class="side">
-      <div class="reveal">
-        <h1><a href="/">wasiey</a></h1>
-        <p class="role">Senior OneStream Developer</p>
-        <p class="pitch">I build consolidation, reporting and forecasting on OneStream, and AI agents that let finance ask questions of live data.</p>
-        <span class="status"><i aria-hidden="true"></i>Based in Germany · working across Europe</span>
+  <div class="page">
+    <header>
+      <div class="rule" aria-hidden="true"></div>
+      <div class="masthead">
+        <h1>wasiey</h1>
+        <p class="lede">Senior OneStream developer. I look after consolidation, group reporting and forecasting for a global manufacturer, and I build tools that make the platform easier to run and easier to ask questions of.</p>
+        <p class="colophon">
+          <span>Germany</span>
+          <span>Updated November 2026</span>
+        </p>
       </div>
-
-      <nav class="toc" aria-label="Sections">
-        <ul>
-          <li><a href="#about">About</a></li>
-          <li><a href="#work">Selected work</a></li>
-          <li><a href="#experience">Experience</a></li>
-          <li><a href="#tools">Tools</a></li>
-        </ul>
-      </nav>
-
-      <div class="social">
-        <a href="https://github.com/wasiey" aria-label="GitHub" title="GitHub">
-          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5C5.65.5.5 5.65.5 12a11.5 11.5 0 0 0 7.86 10.92c.58.1.79-.25.79-.56v-2c-3.2.7-3.87-1.37-3.87-1.37-.53-1.33-1.28-1.69-1.28-1.69-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.84 1.19 3.1 0 4.42-2.7 5.4-5.26 5.68.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5Z"/></svg>
-        </a>
-      </div>
+      <div class="rule" aria-hidden="true"></div>
     </header>
 
-    <main id="content">
-      <section id="about" aria-label="About">
-        <h2 class="label">About</h2>
-        <p>I'm the technical owner of the OneStream platform at a <strong>global manufacturer</strong>, covering consolidation, IFRS group reporting and forecasting. I set the coding standards, review code from internal and external developers, and keep releases moving safely from development to production.</p>
-        <p>Lately most of my time goes into <strong>AI agents for finance</strong>: tools that trace a number back to its source, explain how it was calculated, and answer plain-language questions on live data. They only read. Any change still needs a person to approve it.</p>
-        <p>Before OneStream I worked in data engineering and analytics in logistics. My master's thesis was on machine learning for optimizing industrial systems.</p>
+    <main>
+      <section id="summary">
+        <h2><span class="no">1</span>Summary</h2>
+        <div class="body">
+          <p>Most of my week is OneStream itself: business rules in VB.NET, workspaces and dashboards, data loads from SAP and Databricks, and the month-end close. As senior developer I also set the coding standards and review what our own developers and outside partners build before it goes to production.</p>
+          <p>The rest goes into LLM agents that sit on the OneStream REST API. One helps the admin team track down problems. The other lets finance users ask where a number comes from. Neither can change data on its own.<sup><a href="#n1" aria-label="Note 1">1</a></sup></p>
+          <p>Before this I spent three years on data pipelines and dashboards at a logistics company. My master's thesis used machine learning to optimise industrial systems.</p>
+        </div>
       </section>
 
-      <section id="work" aria-label="Selected work">
-        <h2 class="label">Selected work</h2>
-        <ol class="list">
-          <li class="card">
-            <div class="card-meta">2026<br>In production</div>
-            <div>
-              <h3>Admin AI agent</h3>
-              <p>An in-house agent the OneStream admin team uses every hour as a digital colleague. It traces cell values and audit history, times consolidation steps, searches transformation rules, compares applications and raises DevOps tickets.</p>
-              <p class="outcome"><b>days → minutes</b> to answer admin questions</p>
-              <ul class="tags" aria-label="Built with"><li>Python</li><li>LLM agents</li><li>OneStream REST API</li><li>Azure DevOps API</li></ul>
-            </div>
-          </li>
-          <li class="card">
-            <div class="card-meta">2026<br>Pilot</div>
-            <div>
-              <h3>OneStream Assistant for finance users</h3>
-              <p>Finance users ask questions in plain language and get live values from production, drill-downs, and the calculation logic behind a number written out as a formula. Read-only, safe by design.</p>
-              <ul class="tags" aria-label="Built with"><li>OpenAI Agents SDK</li><li>MLflow</li><li>Databricks Apps</li><li>REST</li></ul>
-            </div>
-          </li>
-          <li class="card">
-            <div class="card-meta">Forecasting</div>
-            <div>
-              <h3>Predictive financial forecasting</h3>
-              <p>Technical owner from design through go-live. Driver-based planning models that combine headcount, sales pipeline, raw material and inventory data, with custom dimensions, hierarchies and workflows.</p>
-              <ul class="tags" aria-label="Built with"><li>OneStream</li><li>VB.NET</li><li>SQL</li></ul>
-            </div>
-          </li>
-          <li class="card">
-            <div class="card-meta">Platform</div>
-            <div>
-              <h3>Automated cleanup workspace</h3>
-              <p>A workspace that finds and removes stale stage data, run against a production copy.</p>
-              <p class="outcome"><b>−72%</b> database size</p>
-              <ul class="tags" aria-label="Built with"><li>VB.NET</li><li>SQL</li><li>Workspaces</li></ul>
-            </div>
-          </li>
-          <li class="card">
-            <div class="card-meta">Restructuring</div>
-            <div>
-              <h3>Legal-entity merger validation</h3>
-              <p>Checked a merger end to end: hierarchies, intercompany elimination scope and the impact on business rules.</p>
-              <p class="outcome"><b>weeks → days</b> to validate</p>
-              <ul class="tags" aria-label="Built with"><li>Consolidation</li><li>Python</li><li>Metadata analysis</li></ul>
-            </div>
-          </li>
-        </ol>
+      <section id="work">
+        <h2><span class="no">2</span>Selected work</h2>
+        <table class="statement">
+          <thead>
+            <tr><th scope="col">Project</th><th scope="col">Status</th><th scope="col" class="num">Outcome</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">Admin agent<sup><a href="#n1" aria-label="Note 1">1</a></sup>
+                <span>Traces a cell through its audit history, times each consolidation step, searches transformation rules, compares applications and opens Azure DevOps tickets. The OneStream admin team uses it every hour.</span></th>
+              <td class="status">In production</td>
+              <td class="num">Minutes, not days</td>
+            </tr>
+            <tr>
+              <th scope="row">Finance assistant<sup><a href="#n1" aria-label="Note 1">1</a></sup>
+                <span>Finance users type a question and get the live value from production, a drill-down, and the calculation behind it written out as a formula. A Databricks App on the OpenAI Agents SDK and MLflow.</span></th>
+              <td class="status">Pilot</td>
+              <td class="num nil">–</td>
+            </tr>
+            <tr>
+              <th scope="row">Predictive forecasting
+                <span>Driver-based planning models that combine headcount, sales pipeline, raw material and inventory data. I was the technical owner from design through go-live.</span></th>
+              <td class="status">Live</td>
+              <td class="num nil">–</td>
+            </tr>
+            <tr>
+              <th scope="row">Database cleanup workspace
+                <span>Finds and removes stale stage data that nothing else was clearing.</span></th>
+              <td class="status">Done</td>
+              <td class="num">−72% size<sup><a href="#n2" aria-label="Note 2">2</a></sup></td>
+            </tr>
+            <tr>
+              <th scope="row">Legal-entity merger check
+                <span>Hierarchies, intercompany elimination scope and the knock-on effect on business rules, checked end to end before the merger went live.</span></th>
+              <td class="status">Done</td>
+              <td class="num">Days, not weeks</td>
+            </tr>
+          </tbody>
+        </table>
       </section>
 
-      <section id="experience" aria-label="Experience">
-        <h2 class="label">Experience</h2>
-        <ol class="list">
-          <li class="card">
-            <div class="card-meta">2024 — Now</div>
+      <section id="experience">
+        <h2><span class="no">3</span>Experience</h2>
+        <ol class="entries">
+          <li class="entry">
+            <span class="when tab">2024 – now</span>
             <div>
-              <h3>Senior OneStream Developer &amp; Forecasting Model Owner<span class="sub">Global manufacturer</span></h3>
-              <ul class="points">
-                <li>Lead technical authority for OneStream across consolidation, IFRS reporting and forecasting. Promoted to senior in 2026.</li>
-                <li>Coding standards, peer code reviews and sign-off on builds from external implementation partners.</li>
-                <li>Business rules, workspaces and dashboards, and SAP and Databricks integrations, released through Azure DevOps.</li>
-                <li>Month-end close: intercompany eliminations, currency translation and capital consolidation.</li>
+              <h3>Senior OneStream Developer &amp; Forecasting Model Owner <em>· global manufacturer</em></h3>
+              <ul>
+                <li>Technical owner of OneStream for consolidation, IFRS reporting and forecasting. Promoted to senior in 2026.</li>
+                <li>Coding standards, peer reviews and sign-off on work from external implementation partners.</li>
+                <li>Month-end close: intercompany eliminations, currency translation, capital consolidation.</li>
+                <li>Releases from development to production through Azure DevOps.</li>
               </ul>
-              <ul class="tags" aria-label="Skills"><li>OneStream</li><li>VB.NET</li><li>C#</li><li>Python</li><li>SQL</li></ul>
             </div>
           </li>
-          <li class="card">
-            <div class="card-meta">2021 — 2024</div>
+          <li class="entry">
+            <span class="when tab">2021 – 2024</span>
             <div>
-              <h3>Product Data Manager &amp; IT Analyst<span class="sub">Global logistics provider</span></h3>
-              <ul class="points">
-                <li>Data architecture, ETL pipelines and real-time KPI monitoring in SQL and Python.</li>
+              <h3>Product Data Manager &amp; IT Analyst <em>· logistics provider</em></h3>
+              <ul>
+                <li>ETL pipelines and real-time KPI monitoring in SQL and Python.</li>
                 <li>Qlik and Tableau dashboards used across departments.</li>
                 <li>Ran Scrum sprints and gathered requirements.</li>
               </ul>
-              <ul class="tags" aria-label="Skills"><li>SQL</li><li>Python</li><li>Qlik</li><li>Tableau</li><li>Scrum</li></ul>
             </div>
           </li>
         </ol>
       </section>
 
-      <section id="tools" aria-label="Tools and education">
-        <h2 class="label">Tools</h2>
-        <dl class="stack">
-          <div><dt>Languages</dt><dd>Python, VB.NET, C#, SQL / T-SQL, PowerShell</dd></div>
-          <div><dt>AI &amp; data</dt><dd>OpenAI Agents SDK, MLflow, Databricks, REST APIs</dd></div>
+      <section id="tools">
+        <h2><span class="no">4</span>Tools and training</h2>
+        <dl class="schedule">
+          <div><dt>Languages</dt><dd>VB.NET, C#, Python, SQL, PowerShell</dd></div>
+          <div><dt>AI and data</dt><dd>OpenAI Agents SDK, MLflow, Databricks, REST APIs</dd></div>
           <div><dt>Platforms</dt><dd>OneStream, SAP, Power BI, Qlik, Tableau</dd></div>
           <div><dt>Delivery</dt><dd>Azure DevOps, Jira, Confluence, Scrum</dd></div>
-          <div><dt>Education</dt><dd>M.Sc. Information Technology (ML thesis) · B.Sc. Engineering</dd></div>
-          <div><dt>Badges</dt><dd>OneStream Essentials: Administration, Security, Financial Calculations, Dashboards</dd></div>
+          <div><dt>Education</dt><dd>M.Sc. Information Technology, with a thesis on machine learning; B.Sc. Engineering</dd></div>
+          <div><dt>Badges</dt><dd>OneStream Essentials in administration, security, financial calculations and dashboards</dd></div>
         </dl>
+      </section>
 
-        <footer>
-          <p>Set in Inter and JetBrains Mono. Static HTML, hosted on GitHub Pages.</p>
-          <p><a class="link" href="https://github.com/wasiey">github.com/wasiey</a> · Updated November 2026</p>
-        </footer>
+      <section id="notes">
+        <h2><span class="no">5</span>Notes</h2>
+        <ol class="notes">
+          <li id="n1">Both agents only read from production. Anything that would write, such as locking an input flag, runs as a dry run first and waits for a person to approve it.</li>
+          <li id="n2">Measured on a copy of the production database.</li>
+        </ol>
       </section>
     </main>
-  </div>
 
-  <script>
-    (() => {
-      const links = [...document.querySelectorAll("nav.toc a")];
-      if (!("IntersectionObserver" in window) || !links.length) return;
-      const byId = new Map(links.map(a => [a.getAttribute("href").slice(1), a]));
-      const io = new IntersectionObserver(entries => {
-        entries.forEach(e => {
-          if (!e.isIntersecting) return;
-          links.forEach(a => a.classList.remove("active"));
-          byId.get(e.target.id)?.classList.add("active");
-        });
-      }, { rootMargin: "-30% 0px -60% 0px" });
-      byId.forEach((_, id) => { const s = document.getElementById(id); if (s) io.observe(s); });
-    })();
-  </script>
+    <footer>
+      <div class="rule" aria-hidden="true"></div>
+      <p><span>Prepared by wasiey</span><span class="tab">November 2026</span></p>
+    </footer>
+  </div>
 </body>
 </html>
